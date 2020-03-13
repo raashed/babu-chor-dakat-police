@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chor police babu dakat</title>
+</head>
+<body>
+<h1 style="text-align: center; font-weight: bold;">Chor Police Babu Dakat</h1>
+<button type="button" onclick="cardAssignToAllMain()" id="newMove">Next</button>
+
+<div id="playerChooseChance" style="display: none">
+    <p id="chanceFor"></p>
+    <p id="findingPlayer"></p>
+    <input type="radio" id="x" name="qq">
+    <label id="xName" for="x"></label>
+    <br/>
+    <input type="radio" id="y" name="qq">
+    <label id="yName" for="y"></label>
+    <br/>
+    <button type="button" onclick="submitMove()">Check</button>
+</div>
+
+<table width="100%" style="border: 5px solid black" id="myTable">
+    <thead>
+    <tr>
+        <th style="border: 5px solid black; width: 8%"></th>
+        <th style="border: 5px solid black; width: 23%">Player 1</th>
+        <th style="border: 5px solid black; width: 23%">Player 2</th>
+        <th style="border: 5px solid black; width: 23%">Player 3</th>
+        <th style="border: 5px solid black; width: 23%">Player 4</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td style="border: 5px solid black; width: 8%; text-align: center; font-weight: bold">Current Card</td>
+        <td style="border: 5px solid black; width: 23%; text-align: center; font-weight: bold" id="p1cc"></td>
+        <td style="border: 5px solid black; width: 23%; text-align: center; font-weight: bold" id="p2cc"></td>
+        <td style="border: 5px solid black; width: 23%; text-align: center; font-weight: bold" id="p3cc"></td>
+        <td style="border: 5px solid black; width: 23%; text-align: center; font-weight: bold" id="p4cc"></td>
+    </tr>
+
+    <tr>
+        <td style="border: 5px solid black; width: 8%; text-align: center; font-weight: bold">Total</td>
+        <td style="border: 5px solid black; width: 23%; text-align: center; font-weight: bold" id="p1s">0</td>
+        <td style="border: 5px solid black; width: 23%; text-align: center; font-weight: bold" id="p2s">0</td>
+        <td style="border: 5px solid black; width: 23%; text-align: center; font-weight: bold" id="p3s">0</td>
+        <td style="border: 5px solid black; width: 23%; text-align: center; font-weight: bold" id="p4s">0</td>
+    </tr>
+    </tbody>
+</table>
+
+<script src="card-assign-to-all.js"></script>
+<script src="append-history-in-table.js"></script>
+<script src="print-sum-all-players.js"></script>
+<script src="get-bonus-for-babu.js"></script>
+<script src="open-select.js"></script>
+<script src="submit-move.js"></script>
+
+<script>
+    const history = [];
+    let currentCards = [];
+
+    function cardAssignToAllMain() {
+        cardAssignToAll();
+        getBonusForBabu();
+        showRadioBox();
+
+        currentCards = history[history.length - 1];
+    }
+
+
+</script>
+</body>
+</html>
